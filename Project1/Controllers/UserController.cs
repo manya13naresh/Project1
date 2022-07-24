@@ -43,7 +43,14 @@ namespace Project1.Controllers
             var bills = _context.BillDetails.Where(x => x.BillName == BillName);
             return Ok(bills);
         }
-
+        [HttpGet]
+        [Route("finalStatus/{BillId}"), Authorize(Roles = "User")]
+        public ActionResult<BillDetail> FinalStatus(int? BillId)
+        {
+            var bills = _context.BillDetails.Where(x => x.BillId == BillId).SingleOrDefault();
+            var status = bills.BillStatus;
+            return Ok(status);
+        }
 
     }
 }

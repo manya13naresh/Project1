@@ -9,7 +9,7 @@ namespace Project1.Model
         [Key]
         public int Id { get; set; }
         [Column(TypeName = "nvarchar(100)")]
-        public string UserName { get; set; } = string.Empty;
+        public string UserName { get; set; } = null!;
         public byte[] PasswordHash { get; set; }
         public byte[] PasswordSalt { get; set; }
         public string Role { get; set; } = "User";

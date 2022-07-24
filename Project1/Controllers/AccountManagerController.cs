@@ -51,6 +51,9 @@ namespace Project1.Controllers
                 if (user.BillId == BillId)
                 {
                     user.BillStatus = bill.BillStatus;
+                    Send.Producer(user.BillStatus);
+                    
+
                     _context.SaveChanges();
                     return Ok("Successfully updated the status");
                 }
