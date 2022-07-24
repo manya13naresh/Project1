@@ -29,7 +29,7 @@ namespace Project1.Controllers
         [HttpGet]
         [Route("getStatus/{BillStatus}"), Authorize(Roles = "Account Manager")]
         public ActionResult<BillDetail> GetStatus(string? BillStatus)
-        {
+        { 
             var bills = _context.BillDetails.Where(x => x.BillStatus == BillStatus);
             var bill = bills.Select(u => new
             {
