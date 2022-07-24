@@ -40,7 +40,18 @@ namespace Project1.Controllers
             var bills = _context.BillDetails.ToList();
             return (bills);
         }
-        
+
+        [HttpDelete]
+        [Route("deleteUser/{UserName}"), Authorize(Roles = "admin")]
+        public string DeleteEmployee(string UserName)
+        {
+                var user = _context.Users.Where(x => x.UserName == UserName).SingleOrDefault();
+                _context.Users.Remove(user);
+                _context.SaveChanges();
+            return ("Deleted Succesfully");
+
+                
+        }
 
     }
 }
