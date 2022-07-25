@@ -49,7 +49,7 @@ namespace Project1.Controllers
             if (user != null)
             {
                 if (user.BillId == BillId)
-                {
+                { 
                     user.BillStatus = bill.BillStatus;
                     Send.Producer(user.BillStatus);
                     
